@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -12,94 +12,90 @@
     <link href='https://css.gg/trash.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/index.css">
 
+<!--    CSS Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
-<body>
-
-<section class="d-flex bg-primary">
 
 
-<div class="d-flex   justify-content-center   m-lg-5 p-lg-5">
-    <!--Listado de Productos - LADO IZQUIERDO-->
-    <div id="gProducts" class="container gap-lg-5 bg-danger row justify-content-center"></div>
-    <!--Contenedor Car Shopping - LADO DERECHO -->
-    <div class="bg-dark">
-        <div class="container p-0  d-flex flex-column  border border-1 shadow  bg-light m-1 "
-             style="width: 340px; border-radius: 1rem;">
-            <!-- CAR -->
-            <div class="container d-flex flex-row p-2  ">
-                <i class="fa fa-shopping-cart mr-2"gProducts style="font-size:29px;color:red"></i>
-                <div style="font-weight: bolder;">CART</div>
+<body class="body">
+<div class="top-content">
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example" data-slide-to="1"></li>
+            <li data-target="#carousel-example" data-slide-to="2"></li>
+        </ol>
+
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="/Images/foods/image1.PNG" alt="First slide">
+                <div class="carousel-caption">
+                    <h3>COCO UOGO</h3>
+                    <div class="carousel-caption-description">
+                        <p>Whole Cheeses</p>
+                    </div>
+                </div>
             </div>
-
-            <!-- status -->
-            <div class="container d-flex border-top border-bottom w-100 p-1 m-0 align-self-center  " id="statusContainer">
-                <div class="container  border mt-1 mb-1   justify-content-between p-1" style="border-radius: 8px" id="car_status">  </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/Images/foods/image2.PNG" alt="Second slide">
+                <div class="carousel-caption">
+                    <h3>LOCALE MARKET</h3>
+                    <div class="carousel-caption-description">
+                        <p>The newest.</p>
+                    </div>
+                </div>
             </div>
-
-            <!-- detalle -->
-            <div class="container d-flex flex-column w-100 m-0 p-0" id="detalle">
-
-<!--                <div style="background-color: whitesmoke;">-->
-<!--                    &lt;!&ndash;SubTotal &ndash;&gt;-->
-<!--                    <div class="d-flex flex-row w-100 m-0 p-2 justify-content-between  border-bottom">-->
-<!--                        <div class="d-flex  " >-->
-<!--                            Subtotal-->
-<!--                        </div>-->
-<!--                        <div class="foods__container_right-detail-subtotal"id="subtotal">-->
-<!--                            0-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                    &lt;!&ndash;Delivery change&ndash;&gt;-->
-<!--                    <div class="d-flex flex-row w-100 m-0 p-2 justify-content-between p-0 border-bottom">-->
-<!--                        <div class="d-flex  ">-->
-<!--                            Delivery Charge-->
-<!--                        </div>-->
-<!--                        <div class="foods__container_right-detail-subtotal" id="delivery">-->
-<!--                            0-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                    &lt;!&ndash;VAT &ndash;&gt;-->
-<!--                    <div class="d-flex flex-row w-100 m-0 p-2 justify-content-between p-0 border-bottom">-->
-<!--                        <div class="d-flex  ">-->
-<!--                            VAT 5%-->
-<!--                        </div>-->
-<!--                        <div class="foods__container_right-detail-subtotal" id="vat">-->
-<!--                            0-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                    &lt;!&ndash;TOTAL &ndash;&gt;-->
-<!--                    <div class="d-flex flex-row w-100 m-0 p-2 justify-content-between p-0 border-bottom  fw-bold">-->
-<!--                        <div class="d-flex  ">-->
-<!--                            TOTAL-->
-<!--                        </div>-->
-<!--                        <div class="foods__container_right-detail-subtotal" id="total">-->
-<!--                            $ 800-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--                &lt;!&ndash;CHECKOUT &ndash;&gt;-->
-<!--                <div class="container p-0 m-0 d-flex justify-content-center align-self-center">-->
-
-<!--                    <div class="btn btn-danger container w-100 m-0 p-2 fw-bold text-white text-sm-center shadow"-->
-<!--                         style="width: 100%;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;">-->
-<!--                        CHECKOUT-->
-<!--                    </div>-->
-
-<!--                </div>-->
-
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/Images/foods/image3.PNG" alt="Third slide">
+                <div class="carousel-caption">
+                    <h3>WILDFLOWERX</h3>
+                    <div class="carousel-caption-description">
+                        <p>Poke & More.</p>
+                    </div>
+                </div>
             </div>
-
         </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div>
+
     </div>
 </div>
+
+<section class="d-flex bg-primary  justify-content-center ">
+    <div class="d-flex    m-lg-2 p-lg-3">
+        <!--Listado de Productos - LADO IZQUIERDO-->
+        <div id="gProducts" class="container gap-lg-5 bg-danger row justify-content-center"></div>
+        <!--Contenedor Car Shopping - LADO DERECHO -->
+        <div class="bg-dark" id="compcarshopping">
+        </div>
+    </div>
 
 </section>
 
 <script src="./Js/index.js" type="module"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
 </body>
 
 
