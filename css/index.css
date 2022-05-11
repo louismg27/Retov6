@@ -2,9 +2,24 @@
 @import url(/css/cards.css);
 @import url(/css/carousel.css);
 @import url(/css/tabs.css);
-
-.body {
-
-
+@import url(/css/header.css);
+:root {
+    scroll-behavior: smooth;
+    --primary-theme-color: #20232a;
+    --secondary-theme-color: #282c34;
+    --text-color: #fff;
+    --primary-shadow-color: #8888;
+    --secondary-shadow-color: #21242c80;
+    --button-color: #61dafb;
+    --button-color-active: #fff;
+    --button-text-color: #000;
+    --primary-highlight-color: #61dafb;
+    --secondary-highlight-color: #ffd700;
+    --invalid-color: #dc143c;
+    --padding-section: 4rem 0;
+    --padding-container: 0 1rem;
+    --max-width-container: 1024px;
+    --border-radius: 0.5rem;
+    --font-size-header: 18px;
+    --all-transitions: all 0.45s;
 }
-
