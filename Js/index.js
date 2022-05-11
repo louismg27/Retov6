@@ -1,10 +1,9 @@
 'use strict';
-import {  readProduct,calculate} from "./AddCartShopping.js";
+import {  readProduct,calculate,trash} from "./AddCartShopping.js";
 
 function DocReady() {
     readProduct();
     calculate();
-
 
 }
 
