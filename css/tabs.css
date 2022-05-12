@@ -1,7 +1,5 @@
 /* Style the tab */
 .tab {
-
-
     border: none;
     background-color: #1a1818a2;
     border-radius: 10px;
@@ -23,13 +21,12 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 9px 16px;
+    padding: 2px 19px;
     transition: 0.3s;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     color: rgb(230, 230, 230);
     height: 40px;
-
     display: inline-block;
 
 }

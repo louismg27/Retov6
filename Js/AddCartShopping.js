@@ -8,8 +8,6 @@ let productos = [
     new Producto("Italian", 100, 100, "doming", "/Images/foods/image4.PNG", 1000),
     new Producto("Egg", 200, 200, " lun", "/Images/foods/image5.PNG", 200),
     new Producto("Tv", 300, 300, "mier", "/Images/foods/image6.PNG", 700),
-    new Producto("Window", 200, 200, " lun", "/Images/foods/image7.PNG", 200),
-    new Producto("Keyboard", 300, 300, "mier", "/Images/foods/image8.PNG", 700)
 ];
 
 let productsInCar = [];
@@ -17,32 +15,45 @@ let productsInCar = [];
 const readProduct = () => {
 
     // Inyeccion de Productos en HTML
-    const gProducts = document.querySelector("#gProducts");//seleccion donde inyectar
+    const compProducts = document.querySelector("#compProducts");//seleccion donde inyectar
     productos.forEach((element) => {
+        // style="width: 100%; height: 8rem; "
+        compProducts.innerHTML += `<div class="container d-flex productoN card-image-title-description bg-danger m-0 productCard "  >
 
-        gProducts.innerHTML += `<div class="productoN card-image-title-description col-lg-3 col-md-6 col-sm-5">
-            <div class="card mt-2" style="width: 16rem; height: 8rem; ">
-                <div class="card-img-wrapper ">
-                    <img class="card-img-top" id="imagen" src=${element.imagen} alt="Card image cap">
-                </div>
-                <div class="card-body ">
-                    <h5 class="card-title" id="nombre">${element.nombre}</h5> 
-                      <p class="card-text" id="id" style="display: none" >${element.id}</p>
-                      <p class="card-text" id="precio" style="display: none">${element.precio}</p>
-                      <p class="card-text" id="conteo" style="display: none">${element.count}</p>
-                      <p class="card-text" id="baseprecio" style="display: none">${element.basePrecio}</p>
-                    <p class="card-text" id="ingrediente">ingre</p>
-                    <p class="card-text" id="horario">${element.horario}</p>
-                    <button id="selectproduct" href="#" class="btnProducts btn btn-danger btn-block">SELECT</button>
+    <div class="product-front">
+        <div class="shadow"></div>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1.jpg" alt="" />
+        <div class="image_overlay"></div>
+        <div class="add_to_cart">Add to cart</div>
+        <div class="view_gallery">View gallery</div>
+        <div class="stats">
+            <div class="stats-container">
+                <span class="product_price">$39</span>
+                <span class="product_name">FLUTED HEM DRESS</span>
+                <p>Summer dress</p>
+
+                <div class="product-options">
+                    <strong>SIZES</strong>
+                    <span>XS, S, M, L, XL, XXL</span>
+                    <strong>COLORS</strong>
+                    <div class="colors">
+                        <div class="c-blue"><span></span></div>
+                        <div class="c-red"><span></span></div>
+                        <div class="c-white"><span></span></div>
+                        <div class="c-green"><span></span></div>
+                    </div>
                 </div>
             </div>
-            </div> 
+        </div>
+    </div>
+
+</div> 
          `;
 
     });
     // Escuchar cada click del listado de productos
     const productsN = document.querySelectorAll(".productoN");
-    // gProducts.addEventListener('click',(event) => {
+    // compProducts.addEventListener('click',(event) => {
     // console.log(event.currentTarget);
     // })
     productsN.forEach((item) => {
