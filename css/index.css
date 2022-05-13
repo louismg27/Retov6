@@ -2,6 +2,7 @@
 @import url(/css/cards.css);
 @import url(/css/carousel.css);
 @import url(/css/tabs.css);
+@import url(/css/productcard.css);
 @import url(/css/header.css);
 :root {
     scroll-behavior: smooth;
@@ -20,6 +21,4 @@
     --padding-container: 0 1rem;
     --max-width-container: 1024px;
     --border-radius: 0.5rem;
-    --font-size-header: 18px;
-    --all-transitions: all 0.45s;
-}
+    --font-size-header: 18px;}

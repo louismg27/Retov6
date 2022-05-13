@@ -18,36 +18,19 @@ const readProduct = () => {
     const compProducts = document.querySelector("#compProducts");//seleccion donde inyectar
     productos.forEach((element) => {
         // style="width: 100%; height: 8rem; "
-        compProducts.innerHTML += `<div class="container d-flex productoN card-image-title-description bg-danger m-0 productCard "  >
+        compProducts.innerHTML += `
 
-    <div class="product-front">
-        <div class="shadow"></div>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1.jpg" alt="" />
-        <div class="image_overlay"></div>
-        <div class="add_to_cart">Add to cart</div>
-        <div class="view_gallery">View gallery</div>
-        <div class="stats">
-            <div class="stats-container">
-                <span class="product_price">$39</span>
-                <span class="product_name">FLUTED HEM DRESS</span>
-                <p>Summer dress</p>
-
-                <div class="product-options">
-                    <strong>SIZES</strong>
-                    <span>XS, S, M, L, XL, XXL</span>
-                    <strong>COLORS</strong>
-                    <div class="colors">
-                        <div class="c-blue"><span></span></div>
-                        <div class="c-red"><span></span></div>
-                        <div class="c-white"><span></span></div>
-                        <div class="c-green"><span></span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="cardc   gap-2">
+    <div class="container p-0 bg-danger rounded-circle coverx">
+        <img src="${element.imagen}" alt=""> 
     </div>
-
+    <div class="cardc_description">
+        <h2>Carolina</h2>
+        <p>opijoij oiajidofjaiofj oaij dfioaj diofaj iosdfj aoisdj foas</p>
+        <button class="btn btn-danger w-100">SELECT</button>
+    </div>
 </div> 
+ 
          `;
 
     });
