@@ -2,12 +2,12 @@
 import {Producto} from "../Models/producto.js";
 
 let productos = [
-    new Producto("Vegan", 100, 100, "S: 29 Dhs I M: 39 Dhs I L: 49 Dhs", "/Images/foods/image1.PNG", 1000,"Mozarella,Red Sauce"),
-    new Producto("Heat", 200, 200, "S: 39 Dhs I M: 49 Dhs I L: 59 Dhs", "/Images/foods/image2.PNG", 200,"Double Beef Pepperoni, Double Mozzarella, Red Sauce"),
-    new Producto("Orange", 300, 300, "mier", "/Images/foods/image3.PNG", 700,"Mozarella,Red Sauce"),
-    new Producto("Italian", 100, 100, "doming", "/Images/foods/image4.PNG", 1000,"Mozarella,Red Sauce"),
-    new Producto("Egg", 200, 200, " lun", "/Images/foods/image5.PNG", 200,"Mozarella,Red Sauce"),
-    new Producto("Tv", 300, 300, "mier", "/Images/foods/image6.PNG", 700,"Mozarella,Red Sauce"),
+    new Producto("Margherita", 100, 100, "S: 29 Dhs I M: 39 Dhs I L: 49 Dhs", "/Images/foods/image1.PNG", 1000,"Mozarella,Red Sauce"),
+    new Producto("Double Down", 200, 200, "S: 39 Dhs I M: 49 Dhs I L: 59 Dhs", "/Images/foods/image2.PNG", 200,"Smokey Joe"),
+    new Producto("Smokey Joe", 300, 300, "S: 39 Dhs I M: 49 Dhs I L: 59 Dhs", "/Images/foods/image3.PNG", 700,"Tandoori Timeout"),
+    new Producto("Tandoori Timeout", 100, 100, "S: 39 Dhs I M: 49 Dhs I L: 59 Dhs", "/Images/foods/image4.PNG", 1000,"Meat Eater"),
+    new Producto("Meat Eater", 200, 200, "S: 39 Dhs I M: 49 Dhs I L: 59 Dhs", "/Images/foods/image5.PNG", 200,"Mozarella,Red Sauce"),
+    new Producto("Mother Earth", 300, 300, "S: 39 Dhs I M: 49 Dhs I L: 59 Dhs", "/Images/foods/image6.PNG", 700,"Mozarella,Red Sauce"),
 ];
 
 let productsInCar = [];
@@ -18,24 +18,30 @@ const readProduct = () => {
     const compProducts = document.querySelector("#compProducts");//seleccion donde inyectar
     productos.forEach((element) => {
         // style="width: 100%; height: 8rem; "
-        compProducts.innerHTML += `<div class="cardc   gap-2">
-    <div class="container p-0 rounded-circle coverx">
-        <img src="${element.imagen}" alt="">
+        compProducts.innerHTML += `
+<div class="cardc   gap-2 productoN ">
+    <div class="container p-0 rounded-circle coverx" >
+        <img id="imagen" src="${element.imagen}" alt="">
     </div>
     <div class="container cardc_description  d-flex flex-column">
-        <div class="d-flex container  justify-content-center h4 fw-bold">
+        <div class="d-flex container  justify-content-center h4 fw-bold" id="nombre">
             ${element.nombre}
-        </div>
-        
-        <div class="d-flex container justify-content-center text-muted" style="font-size: 12px;">
+        </div>  
+              
+        <div class="d-flex container justify-content-center text-muted" id="description" style="font-size: 12px;">
                   ${element.description}
         </div>
-             <div class="d-flex container justify-content-center text-muted mt-2" style="font-size: 12px;">
+        
+          <div class="d-flex container justify-content-center text-muted mt-2" id="horario" style="font-size: 12px;">
                   ${element.horario}
         </div>
-
-       
-        <button class="btn btn-danger w-100">SELECT</button>
+        
+ 
+      <div class="hidden" id="precio">${element.precio}</div>
+      <div class="hidden" id="baseprecio">${element.basePrecio}</div>
+             <div class="hidden" id="id">${element.id}  </div>
+        <button class="btn btn-danger w-100 mt-3" id="selectproduct" ">SELECT</button>
+        
     </div>
 </div> 
  
@@ -44,12 +50,13 @@ const readProduct = () => {
     });
     // Escuchar cada click del listado de productos
     const productsN = document.querySelectorAll(".productoN");
+
     // compProducts.addEventListener('click',(event) => {
     // console.log(event.currentTarget);
     // })
     productsN.forEach((item) => {
         const nombre = item.querySelector('#nombre').innerHTML;
-        const ingrediente = item.querySelector('#ingrediente').innerHTML;
+        const description = item.querySelector('#description').innerHTML;
         const horario = item.querySelector('#horario').innerHTML;
         const precio = item.querySelector('#precio').innerHTML;
         const baseprecio = item.querySelector('#baseprecio').innerHTML;
@@ -57,9 +64,10 @@ const readProduct = () => {
         const id = item.querySelector('#id').innerHTML;
 
         item.addEventListener('click', (e) => {
+
             let producto = {
                 nombre: nombre,
-                ingrediente: ingrediente,
+                description: description,
                 horario: horario,
                 precio: precio,
                 imagen: imagen,
@@ -67,6 +75,7 @@ const readProduct = () => {
                 conteo: 1,
                 id: id
             };
+
             fillCarShopping(producto);
             calculate();
 
@@ -75,34 +84,105 @@ const readProduct = () => {
     });
     readCarShopping(productsInCar);
 }
-const check = () => {
-    const productsN = document.querySelectorAll(".productoN");
 
-    productsN.forEach((item) => {
 
-        item.addEventListener('click', (event) => {
-            const idproductselected = +item.querySelector('#id').innerHTML;
-            const selectproduct = item.querySelector('#selectproduct');
-            console.log("click");
-
-            productsInCar.forEach((element) => {
-
-                const idproductN = +element.id;
-                if (event.target == selectproduct) {
-                    if (idproductN == idproductselected) {
-                        element.conteo += 1;
-                    }
-                }
-                const baseprecio = +element.baseprecio;
-                const preciototal = baseprecio * element.conteo;
-                element.precio = preciototal;
-
-            });
-
-        }, {once: true});
+const fillCarShopping = (producto) => {
+    const idproductoToinsert = +producto.id;
+    let check = 0;
+    productsInCar.forEach((item) => {
+        if (item.id == idproductoToinsert) {
+            check = 1;
+        }
     });
+    if (check == 0) {
+        productsInCar.push(producto);
+    }
+    //Escaneamos el array y actualizamos en cart
+    readCarShopping(productsInCar);
 }
 
+//Escaneamos el array y actualizamos en cart
+const readCarShopping = (productsInCar) => {
+    const itemcar = document.querySelector('#car_status');
+    itemcar.innerHTML = '';
+
+    if (productsInCar.length > 0) {
+        productsInCar.forEach((element) => {
+                const contenthtml = `<div class="d-flex  flex-row   w-100 mt-1 mb-1 itemCarShopping">
+
+    <!--                  imagen-->
+    <div class="container p-0   align-self-center " style="height: 70px; width: 100% ;">
+        <img class="img-responsive rounded  " src="${element.imagen}" alt="Chania" width="100%"
+             height="100%">
+    </div>
+    <!--                  descripcion-->
+    <div class="container p-2  ">
+        <div class="font-weight-bold h6">
+            ${element.nombre}
+        </div>
+        <div id="id" style="display: none">
+            ${element.id}
+        </div>
+        <div class="font-weight-light h6 small ">
+            ${element.description}
+        </div>
+    </div>
+    <!--    Precio y botones +- -->
+    <div class="d-flex flex-row container   justify-content-between m-0 p-0 ">
+
+        <div class="container m-0 p-0">
+            <div class="container p-0 d-flex justify-content-center   ">
+                ${element.precio}
+            </div>
+            <div class="container d-flex flex-column w-100 p-0 mt-2" id="buyItemsButtons">
+                <div class="container d-flex flex-row justify-content-between p-0 m-0   w-100   ">
+                    <button
+                            class="button-plus btn btn-outline-dark button-plus align-self-center p-0" id="buttonplus"
+                            style="width: 30px;height: 30px;">
+                        +
+                    </button>
+                    <div class="fw-normal h6 p-0 m-0 align-self-center">
+                        ${element.conteo}
+                    </div>
+                    <div class="button-minus btn btn-outline-dark align-self-center p-0" id="buttonminus"
+                         style="width: 30px;height: 30px;">
+                        -
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container  align-self-center justify-content-center  m-1 pe-1" style="width: 80px;">
+
+        <i class="gg-trash" id="trash"></i>
+
+    </div>
+
+</div>`;
+                itemcar.innerHTML += contenthtml;
+            }
+        );
+    }
+    if (productsInCar.length == 0) {
+        itemcar.innerHTML += `<div class="bg-light justify-content-center text-sm-center text-lg-center text-md-center h6 align-self-center mt-1 p-0">
+                 Your Car is Empty
+         </div>`;
+    }
+
+
+    readItems();
+    trash();
+
+}
+
+
+//*************************************************************************
+//*************************************************************************
+//*************************************************************************
+//*************************************************************************
+// CONTADOR DE ITEMS
 const readItems = () => {
     const itemsCar = document.querySelectorAll('.itemCarShopping');
     itemsCar.forEach((item) => {
@@ -138,7 +218,7 @@ const readItems = () => {
 
 
 }
-
+// ELIMINACION DE ITEMS
 const trash = () => {
     const itemsCar = document.querySelectorAll('.itemCarShopping');
     itemsCar.forEach((item) => {
@@ -165,7 +245,7 @@ const trash = () => {
         });
     });
 }
-
+//CALCULO DEL TOTAL DE ITEMS
 const calculate = () => {
     const detalle = document.querySelector('#detalle');
 
@@ -238,107 +318,4 @@ const calculate = () => {
 
 
 }
-
-const fillCarShopping = (producto) => {
-    const idproductoToinsert = +producto.id;
-    let check = 0;
-    productsInCar.forEach((item) => {
-        if (item.id == idproductoToinsert) {
-            check = 1;
-        }
-    });
-    if (check == 0) {
-        productsInCar.push(producto);
-    }
-    //Escaneamos el array y actualizamos en cart
-    readCarShopping(productsInCar);
-}
-
-//Escaneamos el array y actualizamos en cart
-const readCarShopping = (productsInCar) => {
-    const itemcar = document.querySelector('#car_status');
-    itemcar.innerHTML = '';
-
-    if (productsInCar.length > 0) {
-        productsInCar.forEach((element) => {
-                const contenthtml = `<div class="d-flex  flex-row   w-100 mt-1 mb-1 itemCarShopping">
-
-    <!--                  imagen-->
-    <div class="container p-0   align-self-center " style="height: 70px; width: 100% ;">
-        <img class="img-responsive rounded  " src="${element.imagen}" alt="Chania" width="100%"
-             height="100%">
-    </div>
-    <!--                  descripcion-->
-    <div class="container p-2  ">
-        <div class="font-weight-bold h6">
-            ${element.nombre}
-        </div>
-        <div id="id" style="display: none">
-            ${element.id}
-        </div>
-        <div class="font-weight-light h6 small ">
-            Large (10")
-        </div>
-    </div>
-    <!--    Precio y botones +- -->
-    <div class="d-flex flex-row container   justify-content-between m-0 p-0 ">
-
-        <div class="container m-0 p-0">
-            <div class="container p-0 d-flex justify-content-center   ">
-                ${element.precio}
-            </div>
-            <div class="container d-flex flex-column w-100 p-0 mt-2" id="buyItemsButtons">
-                <div class="container d-flex flex-row justify-content-between p-0 m-0   w-100   ">
-                    <button
-                            class="button-plus btn btn-outline-dark button-plus align-self-center p-0" id="buttonplus"
-                            style="width: 30px;height: 30px;">
-                        +
-                    </button>
-                    <div class="fw-normal h6 p-0 m-0 align-self-center">
-                        ${element.conteo}
-                    </div>
-                    <div class="button-minus btn btn-outline-dark align-self-center p-0" id="buttonminus"
-                         style="width: 30px;height: 30px;">
-                        -
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container  align-self-center justify-content-center  m-1 pe-1" style="width: 80px;">
-
-        <i class="gg-trash" id="trash"></i>
-
-    </div>
-
-</div>`;
-                itemcar.innerHTML += contenthtml;
-            }
-        );
-    }
-    if (productsInCar.length == 0) {
-        itemcar.innerHTML += `<div class="bg-light justify-content-center text-sm-center text-lg-center text-md-center h6 align-self-center mt-1 p-0">
-                 Your Car is Empty
-         </div>`;
-    }
-
-
-    readItems();
-    trash();
-
-}
-
-// const buttonplus = document.querySelector('#buttonplus');
-// const buttonminus = document.querySelector('#buttonminus');
-// buttonplus.addEventListener('click', (e) => {
-//     element.conteo +=1;
-//     console.log(element.conteo);
-// });
-// buttonminus.addEventListener('click', (e) => {
-//     console.log("menos");
-// });
-
-
 export {readProduct, calculate, trash}
