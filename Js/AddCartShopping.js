@@ -2,12 +2,12 @@
 import {Producto} from "../Models/producto.js";
 
 let productos = [
-    new Producto("Vegan", 100, 100, "doming", "/Images/foods/image1.PNG", 1000),
-    new Producto("Heat", 200, 200, " lun", "/Images/foods/image2.PNG", 200),
-    new Producto("Orange", 300, 300, "mier", "/Images/foods/image3.PNG", 700),
-    new Producto("Italian", 100, 100, "doming", "/Images/foods/image4.PNG", 1000),
-    new Producto("Egg", 200, 200, " lun", "/Images/foods/image5.PNG", 200),
-    new Producto("Tv", 300, 300, "mier", "/Images/foods/image6.PNG", 700),
+    new Producto("Vegan", 100, 100, "S: 29 Dhs I M: 39 Dhs I L: 49 Dhs", "/Images/foods/image1.PNG", 1000,"Mozarella,Red Sauce"),
+    new Producto("Heat", 200, 200, "S: 39 Dhs I M: 49 Dhs I L: 59 Dhs", "/Images/foods/image2.PNG", 200,"Double Beef Pepperoni, Double Mozzarella, Red Sauce"),
+    new Producto("Orange", 300, 300, "mier", "/Images/foods/image3.PNG", 700,"Mozarella,Red Sauce"),
+    new Producto("Italian", 100, 100, "doming", "/Images/foods/image4.PNG", 1000,"Mozarella,Red Sauce"),
+    new Producto("Egg", 200, 200, " lun", "/Images/foods/image5.PNG", 200,"Mozarella,Red Sauce"),
+    new Producto("Tv", 300, 300, "mier", "/Images/foods/image6.PNG", 700,"Mozarella,Red Sauce"),
 ];
 
 let productsInCar = [];
@@ -18,15 +18,23 @@ const readProduct = () => {
     const compProducts = document.querySelector("#compProducts");//seleccion donde inyectar
     productos.forEach((element) => {
         // style="width: 100%; height: 8rem; "
-        compProducts.innerHTML += `
-
-<div class="cardc   gap-2">
-    <div class="container p-0 bg-danger rounded-circle coverx">
-        <img src="${element.imagen}" alt=""> 
+        compProducts.innerHTML += `<div class="cardc   gap-2">
+    <div class="container p-0 rounded-circle coverx">
+        <img src="${element.imagen}" alt="">
     </div>
-    <div class="cardc_description">
-        <h2>Carolina</h2>
-        <p>opijoij oiajidofjaiofj oaij dfioaj diofaj iosdfj aoisdj foas</p>
+    <div class="container cardc_description  d-flex flex-column">
+        <div class="d-flex container  justify-content-center h4 fw-bold">
+            ${element.nombre}
+        </div>
+        
+        <div class="d-flex container justify-content-center text-muted" style="font-size: 12px;">
+                  ${element.description}
+        </div>
+             <div class="d-flex container justify-content-center text-muted mt-2" style="font-size: 12px;">
+                  ${element.horario}
+        </div>
+
+       
         <button class="btn btn-danger w-100">SELECT</button>
     </div>
 </div> 

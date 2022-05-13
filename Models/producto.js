@@ -4,12 +4,13 @@ class Producto {
     _id;
     _nombre;
     _precio;
+    _description;
     _horario;
     _imagen;
     _count;
     _basePrecio;
 
-    constructor(nombre, precio, basePrecio,horario, imagen, count ) {
+    constructor(nombre, precio, basePrecio,horario, imagen, count,description ) {
         this._id = ++Producto.contadorProducto;
         this._nombre = nombre;
         this._precio = precio;
@@ -17,6 +18,15 @@ class Producto {
         this._imagen = imagen;
         this._count = count;
         this._basePrecio = basePrecio;
+        this._description = description;
+    }
+
+    get description() {
+        return this._description;
+    }
+
+    set description(value) {
+        this._description = value;
     }
 
     get id() {
