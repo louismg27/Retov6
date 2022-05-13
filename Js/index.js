@@ -6,15 +6,12 @@ import {compBanner} from "./compBanner.js";
 import {tabselector} from "./funTabs.js";
 
 function DocReady() {
-    header();
+    // header();
     compBanner();
     compCarShopping();
     readProduct();
     calculate();
     tabselector();
-
-
-
 
 }
 

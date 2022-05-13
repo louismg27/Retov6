@@ -1,7 +1,7 @@
 const compCarShopping = () => {
   const cart = document.querySelector('#compcarshopping');
 
-  cart.insertAdjacentHTML("afterbegin", `      <div class="container p-0  d-flex flex-column  border border-1 shadow  bg-light m-1 "
+  cart.insertAdjacentHTML("afterbegin", `      <div class="container p-0  d-flex flex-column  border border-1 shadow  bg-light m-1 sticky-lg-top"
              style="width: 340px; border-radius: 1rem;">
             <!-- CAR -->
             <div class="container d-flex flex-row p-2  ">
