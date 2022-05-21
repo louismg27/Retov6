@@ -1,0 +1,138 @@
+.productlist {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+
+}
+
+.productlistleft {
+    max-width: 100vw;
+
+}
+
+.productCard {
+    max-width: 10%;
+    margin-bottom: 3rem;
+    gap: 1rem;
+    height: 32rem;
+}
+
+.container-car {
+    display: none;
+}
+
+.productGrid {
+    margin-left: 0px;
+}
+
+
+@media (min-width: 854px) {
+    .productlist {
+        flex-direction: row;
+        width: auto;
+    }
+
+    .productlistleft {
+        max-width: 55vw;
+    }
+
+    .productCard {
+        max-width: 330px;
+    }
+
+    .container-car {
+        display: block;
+    }
+
+    .productGrid {
+
+    }
+}
+.hidden {
+    display: none;
+}
+/*CARDS*/
+.container__cards {
+    max-width: 100%;
+    margin: auto;
+    margin-top: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cardc {
+    width: 490px;
+    margin: 10px;
+    transition: all 400ms;
+    background-color: whitesmoke;
+    border-radius:  20px;
+    box-shadow: 8px 12px 31px -10px #ab98ab;
+
+}
+
+.cardc:hover {
+    width: 480px;
+    box-shadow: 21px 14px 44px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 21px 14px 44px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 21px 14px 44px -2px rgba(0,0,0,0.75);
+}
+
+
+.cardc .coverx {
+    position: relative;
+    height: 400px;
+}
+
+.cardc .coverx img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    margin:auto;
+    display: block;
+}
+.cardc:hover .coverx img{
+    top: 0px;
+
+}
+
+.cardc .img__back {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    background-size: cover;
+}
+
+/*.cardc:nth-of-type(1) .img__back {*/
+/*    background-image: url("../Images/foods/image2.PNG");*/
+/*}*/
+
+/*.cardc:nth-of-type(2) .img__back {*/
+/*    background-image: url("../Images/foods/image3.PNG");*/
+/*}*/
+.cardc_description{
+    margin-top: 5px;
+    padding: 15px;
+}
+
+
+
+
+@media (min-width: 854px) {
+    .cardc {
+        width: 380px;
+    }
+
+    .cardc:hover {
+        width: 389px;
+    }
+
+    .container__cards {
+        max-width: 1290px;}
+
+}

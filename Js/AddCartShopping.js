@@ -40,7 +40,7 @@ const readProduct = () => {
       <div class="hidden" id="precio">${element.precio}</div>
       <div class="hidden" id="baseprecio">${element.basePrecio}</div>
              <div class="hidden" id="id">${element.id}  </div>
-        <button class="btn btn-danger w-100 mt-3" id="selectproduct" ">SELECT</button>
+        <button class="btn btn-danger w-100 mt-3 fw-bold"   id="selectproduct" ">SELECT</button>
         
     </div>
 </div> 

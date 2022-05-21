@@ -23,44 +23,45 @@
 
     </style>
 
+
 </head>
 
 
 <body class="body">
 
 <!--SECCION HEADER-->
-<!--<header class="header  ">-->
-<!--    <div class="headersub"></div>-->
+<header class="header  ">
+    <div class="headersub"></div>
 
 
-<!--    <nav class="header-nav">-->
+    <nav class="header-nav  ">
 
-<!--        <div class="header-nav__container     ">-->
-<!--            <a href="#profile" class="header-nav__link-logo-container mt-1">-->
-<!--                &lt;!&ndash;                <img src="./img/logo-elliot.garamendi.jpg" alt="Logo Elliot Garamendi" class="header-nav__link-logo" />&ndash;&gt;-->
-<!--                LOCALE-->
-<!--            </a>-->
-<!--            <div class="header-nav__theme-menu-container">-->
+        <div class="header-nav__container     ">
+            <a href="#profile" class="header-nav__link-logo-container mt-1">
+                <!--                <img src="./img/logo-elliot.garamendi.jpg" alt="Logo Elliot Garamendi" class="header-nav__link-logo" />-->
+                LOCALE
+            </a>
+            <div class="header-nav__theme-menu-container">
 
-<!--                <div class="header-nav__menu-icon-label" id="headerNavMenuIcon">-->
-<!--                    <i class="bi bi-list"></i>-->
-<!--                </div>-->
-<!--                <ul class="header-nav__menu-link-list">-->
-<!--                    <li class="header-nav__menu-link-item">-->
-<!--                        <a href="#profile" class="header-nav__menu-link ">LOG IN</a>-->
-<!--                    </li>-->
-<!--                    <li class="header-nav__menu-link-item">-->
-<!--                        <a href="#experiences" class="header-nav__menu-link ">SIGN IN</a>-->
-<!--                    </li>-->
-<!--                    <li class="header-nav__menu-link-item header-nav__menu-link-item&#45;&#45;close-absolute"-->
-<!--                        id="headerNavMenuCloseIcon">-->
-<!--                        <i class="bi bi-x-lg"></i>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </nav>-->
-<!--</header>-->
+                <div class="header-nav__menu-icon-label" id="headerNavMenuIcon">
+                    <i class="bi bi-list"></i>
+                </div>
+                <ul class="header-nav__menu-link-list">
+                    <li class="header-nav__menu-link-item">
+                        <a href="#profile" class="header-nav__menu-link ">LOG IN</a>
+                    </li>
+                    <li class="header-nav__menu-link-item">
+                        <a href="#experiences" class="header-nav__menu-link ">SIGN IN</a>
+                    </li>
+                    <li class="header-nav__menu-link-item header-nav__menu-link-item--close-absolute"
+                        id="headerNavMenuCloseIcon">
+                        <i class="bi bi-x-lg"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
 <!--SECCION BANNER-->
 <section>
@@ -69,7 +70,7 @@
 </section>
 
 <!--SECCION   LIST AND CART SHOOPPING-->
-<section class="d-flex justify-content-center m-0 p-0">
+<section class="d-flex justify-content-center m-0 p-0" style="background-color: lightgray">
     <div class="d-flex  justify-content-center  productlist ">
         <!--Listado de Productos - LADO IZQUIERDO-->
         <div class="d-flex flex-column justify-content-center container p-0 ">
@@ -118,7 +119,15 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
+<script>
+    const scrollUp = "scroll-up";
+    const scrollDown = "hidden";
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header-nav');
+        header.classList.add(scrollDown);
+        console.log(header);
+    })
+</script>
 
 </body>
 
